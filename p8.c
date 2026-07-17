@@ -1,33 +1,29 @@
-#include <stdio.h>
+#include<stdio.h>
 
 int main()
 {
-    int a[10],i,j,pos,temp,n=10;
+    int a[10],i,j,temp;
 
     printf("Enter 10 elements:\n");
-    for(i=0;i<n;i++)
+    for(i=0;i<10;i++)
         scanf("%d",&a[i]);
 
-    printf("Enter position to delete (1-10):");
-    scanf("%d",&pos);
-
-    for(i=pos-1;i<n-1;i++)
-        a[i]=a[i+1];
-
-        n--;
-
-    for(i=0;i<n-1;i++)
-        for(j=i+1;j<n;j++)
+    for(i=0;i<9;i++)
+    {
+        for(j=i+1;j<10;j++)
+        {
             if(a[i]>a[j])
             {
                 temp=a[i];
                 a[i]=a[j];
                 a[j]=temp;
             }
+        }
+    }
 
-    printf("\n Array after deletion and sorting:\n");
-    for(i=0;i<n;i++)
+    printf("\n Array in ascending order:\n");
+    for(i=0;i<10;i++)
         printf("%d",a[i]);
 
     return 0;
-}
+}       
