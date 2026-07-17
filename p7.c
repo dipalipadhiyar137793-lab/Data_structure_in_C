@@ -1,19 +1,34 @@
+#include <stdio.h>
+
 int main()
 {
-    int A[10],i,largest;
-    printf("enter 10 number:\n");
-    for(i=0;i<10;i++)
-    {
-        scanf("%d",&A[i]);
-    }
-    largest=A[0];
-    for(i=1;i<10;i++)
-    {
-        if (A[i]>largest)
-        {
-            largest=A[i];
-        }
-    }
-    printf("largest value=%d",largest);
+    int a[10],i,j,pos,temp,n=10;
+
+    printf("Enter 10 elements:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+
+    printf("Enter position to delete (1-10):");
+    scanf("%d",&pos);
+
+    for(i=pos-1;i<n-1;i++)
+        a[i]=a[i+1];
+
+        n--;
+
+    for(i=0;i<n-1;i++)
+        for(j=i+1;j<n;j++)
+            if(a[i]>a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+
+    printf("\n Array after deletion and sorting:\n");
+    for(i=0;i<n;i++)
+        printf("%d",a[i]);
+
     return 0;
 }
+    
